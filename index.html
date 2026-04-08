@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h2>Bem-vindo ao Controle Financeiro Pessoal</h2>
+            <p>Gerencie suas finanças de forma simples e eficiente. Navegue pelas seções acima para adicionar dados, visualizar relatórios e acompanhar seus investimentos.</p>
+            <div class="dashboard-preview">
+                <h3>Visão Geral Rápida</h3>
+                <p>Receita Total: <span id="receitaTotal">R$ 0,00</span></p>
+                <p>Gastos Totais: <span id="gastosTotais">R$ 0,00</span></p>
+                <p>Saldo: <span id="saldo">R$ 0,00</span></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

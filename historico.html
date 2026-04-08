@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="historico">
+            <h2>Histórico de Faturamento e Gastos</h2>
+            <div id="filtrosHistorico">
+                <label for="periodoHistorico">Período:</label>
+                <select id="periodoHistorico">
+                    <option value="mes">Mês</option>
+                    <option value="semana">Semana</option>
+                    <option value="dia">Dia</option>
+                </select>
+            </div>
+            <table id="tabelaHistorico">
+                <thead>
+                    <tr>
+                        <th>Período</th>
+                        <th>Faturamento</th>
+                        <th>Gastos</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <canvas id="graficoHistorico" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

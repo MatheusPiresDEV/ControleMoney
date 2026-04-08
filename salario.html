@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário e Receitas - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="salario">
+            <h2>Salário e Receitas</h2>
+            <form id="salarioForm">
+                <label for="salarioMensal">Salário Mensal:</label>
+                <input type="number" id="salarioMensal" step="0.01" required>
+                <label for="receitasExtras">Receitas Extras:</label>
+                <input type="number" id="receitasExtras" step="0.01" required>
+                <button type="submit" class="btn">Adicionar</button>
+            </form>
+            <div id="historicoSalario"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

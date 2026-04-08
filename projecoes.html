@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeções - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="projecoes">
+            <h2>Projeções de Investimentos</h2>
+            
+            <form id="projecaoForm">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <label for="mesesProjecao">Meses à frente:</label>
+                        <input type="number" id="mesesProjecao" value="12" min="1" max="240" required>
+                    </div>
+                    <div>
+                        <label for="tipoProjecao">Tipo de Investimento:</label>
+                        <select id="tipoProjecao" required>
+                            <option value="cdi">CDI</option>
+                            <option value="fii">FIIs</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3>CDI</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <label for="aporteCDI">Aporte Recorrente Mensal CDI (R$):</label>
+                        <input type="number" id="aporteCDI" step="0.01" value="0">
+                    </div>
+                    <div>
+                        <label for="taxaCDI">Taxa CDI (% ao ano):</label>
+                        <input type="number" id="taxaCDI" step="0.01" value="10" required>
+                    </div>
+                </div>
+
+                <h3>FIIs</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <label for="aporteFII">Aporte Recorrente Mensal FII (R$):</label>
+                        <input type="number" id="aporteFII" step="0.01" value="0">
+                    </div>
+                    <div>
+                        <label for="rentabilidadeFII">Rentabilidade FII (% ao ano):</label>
+                        <input type="number" id="rentabilidadeFII" step="0.01" value="8" required>
+                    </div>
+                    <div>
+                        <label for="dividendosFII">Dividendos FII (% ao mês):</label>
+                        <input type="number" id="dividendosFII" step="0.01" value="2.5" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Calcular Projeção</button>
+            </form>
+
+            <h3>Projeção de CDI</h3>
+            <table id="tabelaProjecoesCDI">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Aporte</th>
+                        <th>Rendimento</th>
+                        <th>Saldo Acumulado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <canvas id="graficoProjecoesCDI" width="400" height="250"></canvas>
+
+            <h3>Projeção de FIIs</h3>
+            <table id="tabelaProjecoesFII">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Aporte</th>
+                        <th>Valorização</th>
+                        <th>Dividendos</th>
+                        <th>Saldo Acumulado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <canvas id="graficoProjecoesFII" width="400" height="250"></canvas>
+
+            <h3>Projeção Consolidada</h3>
+            <table id="tabelaProjecoes">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>CDI Acumulado</th>
+                        <th>FIIs Acumulado</th>
+                        <th>Total Acumulado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <canvas id="graficoProjecoes" width="400" height="250"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

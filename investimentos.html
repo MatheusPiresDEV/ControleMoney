@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimentos - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="investimentos">
+            <h2>Investimentos</h2>
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Configuração de CDI</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                    <div>
+                        <label for="taxaCDIAtual">Taxa CDI Atual (% a.a.):</label>
+                        <input type="number" id="taxaCDIAtual" step="0.01" value="10" style="max-width: 150px;">
+                    </div>
+                    <button type="button" onclick="atualizarTaxaCDI()" class="btn">Atualizar Taxa</button>
+                </div>
+            </div>
+            <h3>CDI</h3>
+            <form id="cdiForm">
+                <label for="dataCDI">Data:</label>
+                <input type="date" id="dataCDI" required>
+                <label for="valorCDI">Valor Aplicado:</label>
+                <input type="number" id="valorCDI" step="0.01" required>
+                <button type="submit" class="btn">Adicionar CDI</button>
+            </form>
+            <table id="tabelaCDI">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Valor Aplicado</th>
+                        <th>Taxa CDI</th>
+                        <th>Rendimento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <h3>FIIs</h3>
+            <form id="fiiForm">
+                <label for="dataFII">Data:</label>
+                <input type="date" id="dataFII" required>
+                <label for="nomeFII">Nome do Fundo:</label>
+                <input type="text" id="nomeFII" required>
+                <label for="qtdCotas">Quantidade de Cotas:</label>
+                <input type="number" id="qtdCotas" required>
+                <label for="precoMedio">Preço Médio:</label>
+                <input type="number" id="precoMedio" step="0.01" required>
+                <button type="submit" class="btn">Adicionar FII</button>
+            </form>
+            <table id="tabelaFII">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Nome</th>
+                        <th>Qtd Cotas</th>
+                        <th>Preço Médio</th>
+                        <th>Valor Atual</th>
+                        <th>Patrimônio</th>
+                        <th>Dividendos</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="patrimonioTotal"></div>
+            <canvas id="graficoInvestimentos" width="400" height="300"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Controle Financeiro Pessoal</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="salario.html">Salário e Receitas</a></li>
+                <li><a href="gastos.html">Gastos Mensais</a></li>
+                <li><a href="resumo.html">Resumo Financeiro</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+                <li><a href="projecoes.html">Projeções</a></li>
+                <li><a href="metas.html">Metas</a></li>
+                <li><a href="cartao.html">Cartão de Crédito</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard Consolidado</h2>
+            
+            <!-- Cards de Indicadores Principais -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h4 style="margin: 0 0 0.5rem 0; opacity: 0.9;">Receita Total</h4>
+                    <p id="dashReceita" style="margin: 0; font-size: 1.8rem; font-weight: bold;">R$ 0,00</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h4 style="margin: 0 0 0.5rem 0; opacity: 0.9;">Gastos Totais</h4>
+                    <p id="dashGastos" style="margin: 0; font-size: 1.8rem; font-weight: bold;">R$ 0,00</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h4 style="margin: 0 0 0.5rem 0; opacity: 0.9;">Saldo Líquido</h4>
+                    <p id="dashSaldo" style="margin: 0; font-size: 1.8rem; font-weight: bold; color: white;">R$ 0,00</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h4 style="margin: 0 0 0.5rem 0; opacity: 0.9;">Patrimônio</h4>
+                    <p id="dashPatrimonio" style="margin: 0; font-size: 1.8rem; font-weight: bold;">R$ 0,00</p>
+                </div>
+            </div>
+            
+            <!-- Gráficos Principais -->
+            <div class="dashboard-grid">
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Gastos por Categoria</h3>
+                    <canvas id="dashGastosCategoria" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Receita x Despesa</h3>
+                    <canvas id="dashReceitaDespesa" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Evolução dos Investimentos</h3>
+                    <canvas id="dashInvestimentos" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Progresso das Metas</h3>
+                    <canvas id="dashMetas" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Limites do Cartão</h3>
+                    <canvas id="dashCartao" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Comparação entre Meses</h3>
+                    <canvas id="dashComparacaoMeses" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Dias com Maiores Gastos</h3>
+                    <canvas id="dashDiasGastos" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Evolução do Salário</h3>
+                    <canvas id="dashSalario" width="400" height="300"></canvas>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0;">Faturamento vs Gastos</h3>
+                    <canvas id="dashHistorico" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
